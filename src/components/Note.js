@@ -1,14 +1,18 @@
 import React from "react";
 
-const Note = ({ notes, deleteNote }) => {
+const Note = ({ note, deleteNote }) => {
+    console.log(note.text);
     const handleDeleteNote = () =>{
-        deleteNote(notes.id)
+        deleteNote(note.id)
+
     }
     return(
+        <div className="noteArea">
         <div className="noteInfo">
-            <textarea><span className="noteData">{notes.text}</span></textarea>
-            <h3><span className="noteData">{notes.date}</span></h3>
+            <div className="noteData">{note.text}</div>
+            <h3 className="noteData">{note.date.toString()}</h3>
             <button onClick = {handleDeleteNote}>Delete Note</button>
+        </div>
         </div>
     )
     }

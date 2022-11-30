@@ -3,12 +3,25 @@ import { nanoid } from 'nanoid'
 
 function Form({addNote}) {
   const [text, setText] = useState("");
+  const [textareaheight, setTextareaheight] = useState(1); 
 
+  
 
   const handleText = (e) => {
     setText(e.target.value);
-    console.log(e.target.value)
-  };
+    const height = e.target.scrollHeight; 
+    const rows = e.target.rows; 
+    const rowHeight = 15; 
+    const trows = Math.ceil(height / rowHeight) - 1; 
+    if (trows,textareaheight ) { 
+      setTextareaheight(trows); 
+    }
+      
+      console.log((trows - rows) + ' more rows'); 
+      
+    } 
+   
+  
 
   const handleSubmit = (e) => {
     console.log("worked");
@@ -18,6 +31,7 @@ function Form({addNote}) {
       date: new Date(),
       id:nanoid()
     }
+    if (text.length>0)
    addNote(newNote)
    setText("")
   };
@@ -29,12 +43,15 @@ function Form({addNote}) {
         value={text}
         onChange={handleText}
         name={"textarea"}
-        placeholder="note" >
+        placeholder="Type note..." >
 
       </textarea>
+      <div className="buttonBox">
       <button className="formButton" onClick={handleSubmit} type="submit">Add</button>
+      </div>
     </div>
   );
-}
+  }
+
 
 export default Form;
