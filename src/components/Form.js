@@ -1,28 +1,29 @@
-import React, { useState } from "react";
+import React, { useState }  from "react";
 import { nanoid } from 'nanoid'
+import TextareaAutosize from 'react-textarea-autosize';
 
 function Form({addNote}) {
+  //const textRef = useRef("");
   const [text, setText] = useState("");
   const[title,setTitle] = useState("");
-  const [textareaheight, setTextareaheight] = useState(1); 
+  //const [value, setValue] = useState(0);
+  const handleText = (e) => {
+    //setValue(e.target.value);
+    setText(e.target.value);
+  };
+
 
   
   const handleTitle = (e) =>{
     setTitle(e.target.value)
   }
-  const handleText = (e) => {
+  /*const handleText = (e) => {
     setText(e.target.value);
-    const height = e.target.scrollHeight; 
-    const rows = e.target.rows; 
-    const rowHeight = 15; 
-    const trows = Math.ceil(height / rowHeight) - 1; 
-    if (trows,textareaheight ) { 
-      setTextareaheight(trows); 
-    }
+   
+    }*/
       
-      console.log((trows - rows) + ' more rows'); 
-      
-    } 
+    
+    
    
   
     const noteDate = new Date()
@@ -53,20 +54,20 @@ function Form({addNote}) {
       className="noteTitle"
       placeholder="Your Title"
       ></input>
-      <input
+      <TextareaAutosize
         value={text}
         onChange={handleText}
         className="textarea"
         placeholder="Type note..." 
-        required>
+        required
 
-      </input>
+      />
       <div className="buttonBox">
       <button className="formButton" onClick={handleSubmit} type="submit">Add</button>
       </div>
     </div>
   );
-}
+  }
 
 
 export default Form;
