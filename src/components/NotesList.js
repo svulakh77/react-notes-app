@@ -2,12 +2,16 @@ import React from "react";
 import Note from "./Note.js"
 
 
-function notesList({notes,deleteNote}){
+function notesList({notes,addNote, deleteNote}){
 console.log(notes)
 return(
     <div className="noteList">
         { notesList && notesList > 0 &&
-            notesList.map((note) => ( <Note note = {note} key = {note.id} deleteNote={deleteNote}/>))
+            notesList.map((notes) => ( <Note 
+                notes = {notes} 
+                key = {notes.id} 
+                addNote = {addNote}
+                deleteNote={deleteNote}/>))
         
     }
         

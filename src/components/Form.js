@@ -23,14 +23,16 @@ function Form({addNote}) {
   };
 
   return (
-    <div>
+    <div className = "noteForm">
+      <h2>Notes</h2>
       <textarea
         value={text}
         onChange={handleText}
         name={"textarea"}
-        placeholder="note"
-      ></textarea>
-      <button onClick={handleSubmit}>Add</button>
+        placeholder="note" >
+
+      </textarea>
+      <button className="formButton" onClick={handleSubmit} type="submit">Add</button>
     </div>
   );
 }

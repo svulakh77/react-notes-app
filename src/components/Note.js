@@ -1,13 +1,13 @@
 import React from "react";
 
-const Note = ({note,deleteNote}) => {
+const Note = ({ notes, deleteNote }) => {
     const handleDeleteNote = () =>{
-        deleteNote(note.id)
+        deleteNote(notes.id)
     }
     return(
         <div className="noteInfo">
-            <textarea><span className="noteData">{note.text}</span></textarea>
-            <h3><span className="noteData">{note.date}</span></h3>
+            <textarea><span className="noteData">{notes.text}</span></textarea>
+            <h3><span className="noteData">{notes.date}</span></h3>
             <button onClick = {handleDeleteNote}>Delete Note</button>
         </div>
     )
