@@ -22,13 +22,14 @@ function Form({addNote}) {
     } 
    
   
-
-  const handleSubmit = (e) => {
+    const noteDate = new Date()
+  
+    const handleSubmit = (e) => {
     console.log("worked");
     e.preventDefault();
     const newNote = {
       text: text,
-      date: new Date(),
+      date: noteDate.toLocaleString(),
       id:nanoid()
     }
     if (text.length>0)
