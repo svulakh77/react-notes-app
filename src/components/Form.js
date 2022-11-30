@@ -3,10 +3,13 @@ import { nanoid } from 'nanoid'
 
 function Form({addNote}) {
   const [text, setText] = useState("");
+  const[title,setTitle] = useState("");
   const [textareaheight, setTextareaheight] = useState(1); 
 
   
-
+  const handleTitle = (e) =>{
+    setTitle(e.target.value)
+  }
   const handleText = (e) => {
     setText(e.target.value);
     const height = e.target.scrollHeight; 
@@ -27,19 +30,29 @@ function Form({addNote}) {
     const handleSubmit = (e) => {
     console.log("worked");
     e.preventDefault();
+  
     const newNote = {
+      title: title,
       text: text,
       date: noteDate.toLocaleString(),
-      id:nanoid()
-    }
-    if (text.length>0)
-   addNote(newNote)
+      id:nanoid()}
+   
+  if (text.length>0){
+  addNote(newNote)
    setText("")
-  };
-
+   setTitle("")
+   console.log(newNote)
+  }
+    }
   return (
     <div className = "noteForm">
       <h2>Notes</h2>
+      <input 
+      value={title}
+      onChange={handleTitle}
+      className="noteTitle"
+      placeholder="Your Title"
+      ></input>
       <textarea
         value={text}
         onChange={handleText}
@@ -52,7 +65,7 @@ function Form({addNote}) {
       </div>
     </div>
   );
-  }
+}
 
 
 export default Form;
