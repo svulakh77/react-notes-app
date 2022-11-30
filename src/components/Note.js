@@ -3,10 +3,10 @@ import React from "react";
 const Note = ({ note, deleteNote }) => {
     console.log(note.text);
     function handleDeleteNote(){
-        // const result = alert("Are you sure you want to delete?")
-        // if(result){
-        //  deleteNote(note.id)
-        // }
+        const result = confirm("Are you sure you want to delete?")
+       if(result){
+        deleteNote(note.id)
+        }
     }
     return(
         <div className="noteArea">

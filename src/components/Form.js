@@ -53,13 +53,14 @@ function Form({addNote}) {
       className="noteTitle"
       placeholder="Your Title"
       ></input>
-      <textarea
+      <input
         value={text}
         onChange={handleText}
-        name={"textarea"}
-        placeholder="Type note..." >
+        className="textarea"
+        placeholder="Type note..." 
+        required>
 
-      </textarea>
+      </input>
       <div className="buttonBox">
       <button className="formButton" onClick={handleSubmit} type="submit">Add</button>
       </div>
