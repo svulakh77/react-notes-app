@@ -1,8 +1,9 @@
 .noteContainer{
   display: flex;
-  margin: 200px;
+  margin: auto;
   flex-direction: column;
   padding: 30px;
+  width: 90%;
 }
 .noteForm{
   display: flex;
@@ -79,8 +80,9 @@ textarea{
 }
 .noteList{
   display: grid;
-  grid-template-columns: repeat(3, 3fr);
+  grid-template-columns: repeat(4, 3fr);
   gap: 10px;
+  width: 100%;
   
 }
 .noteArea{
@@ -152,4 +154,13 @@ textarea{
   background-color: #f8f8f8;
   font-size: 20px;
   resize: none;
+ font-family: 'Courier New', Courier, monospace;
+}
+body{
+  background-color: #ADD8E6;
+}
+.modal{
+  border: 5px solid #000;
+  background-color: #Ececec;
+  box-shadow: 3px 3px 10px rgba(0 0 0 / 0.5);
 }

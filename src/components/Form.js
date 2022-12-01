@@ -3,12 +3,9 @@ import { nanoid } from 'nanoid'
 import TextareaAutosize from 'react-textarea-autosize';
 
 function Form({addNote}) {
-  //const textRef = useRef("");
   const [text, setText] = useState("");
   const[title,setTitle] = useState("");
-  //const [value, setValue] = useState(0);
   const handleText = (e) => {
-    //setValue(e.target.value);
     setText(e.target.value);
   };
 
@@ -17,11 +14,7 @@ function Form({addNote}) {
   const handleTitle = (e) =>{
     setTitle(e.target.value)
   }
-  /*const handleText = (e) => {
-    setText(e.target.value);
-   
-    }*/
-      
+ 
     
     
    
