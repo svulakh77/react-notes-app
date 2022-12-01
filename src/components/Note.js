@@ -8,37 +8,41 @@ import ModalFooter from 'react-bootstrap/ModalFooter'
 
 
 const Note = ({ note, deleteNote }) => {
-    console.log(note.text);
     function handleDeleteNote(){
         const result = window.confirm("Are you sure you want to delete?")
-       if(result){
-        deleteNote(note.id)
+        if(result){
+            deleteNote(note.id)
         }
     }
+    
     const [show, setShow] = useState(false);
+    console.log(show);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const onModalSubmit = (e) => {
+        e.stopPropagation();
+        handleClose();
+      };
 
     return(
         <div className="noteArea" onClick={handleShow} >
 
       <Modal
         show={show}
-        onHide={handleClose}
         backdrop="static"
         keyboard={false}
         className="modal"
+        onHide={onModalSubmit}
       >
     
-        <ModalBody>
+        <ModalBody className="modalContent">
           <div>{note.title}</div>
           <div>{note.text}</div>
-        </ModalBody>
-        <ModalFooter>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={onModalSubmit} className="close">
             Close
           </Button>
-          <Button variant="primary">Understood</Button>
+        </ModalBody>
+        <ModalFooter>
         </ModalFooter>
       </Modal>
 
