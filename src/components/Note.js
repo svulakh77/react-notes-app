@@ -60,7 +60,7 @@ const Note = ({ note, deleteNote, editNote }) => {
                 value={modalTitle}
                 type="text"
                 className="modalTitle"
-                placeholder="your New Title"
+                placeholder="Your New Title..."
               ></input>
             </form>
             <textarea
@@ -71,26 +71,27 @@ const Note = ({ note, deleteNote, editNote }) => {
               value={modalBody}
               type="text"
               className="modalText"
-              placeholder="Type Note..."
+              placeholder="Update Note..."
+              
             ></textarea>
+             <Button variant="primary" onClick={submitEditNote} className="edit modalButton">
+            Edit
+          </Button>
+            <Button variant="secondary" onClick={onModalSubmit} className="close modalButton">
+            Close
+          </Button>
           </div>
         </ModalBody>
         <ModalFooter className="modalFooter">
-          <Button variant="secondary" onClick={onModalSubmit} className="close">
-            Close
-          </Button>
-          <Button variant="primary" onClick={submitEditNote}>
-            Edit
-          </Button>
         </ModalFooter>
         </div>
       </Modal>
 
       <div className="noteInfo">
-        <div className="noteData">{note.title}</div>
-        <div className="noteData req">{note.text}</div>
-        <h3 className="noteData">Created Date: {note.date}</h3>
-       <h3 className="updatedDate">Updated Date:{modalDate}</h3>
+        <h3 className="noteData">{note.title}</h3>
+        <h4 className="noteData req">{note.text}</h4>
+        <h6 className="noteData">Created Date: {note.date}</h6>
+       <h6 className="updatedDate">Updated Date:{modalDate}</h6>
          <button className="deleteButton" onClick={handleDeleteNote}>
           Delete Note
         </button>
