@@ -14,11 +14,12 @@ function App() {
     const deletedNote = notes.filter((note) => note.id !== noteId);
     setNotes(deletedNote);
   };
-  const editNote = (noteId, newNoteTitle, newNoteText) => {
+  const editNote = (noteId, newNoteTitle, newNoteText, date, newDate) => {
     const editedNote = notes.map((note) => {
       if (note.id === noteId) {
-        return { ...note, title: newNoteTitle, text: newNoteText, date:date};
+        return { ...note, title: newNoteTitle, text: newNoteText, date:date, updatedDate:newDate};
       }
+      return note
     });
     console.log(editedNote)
     setNotes(editedNote);
@@ -27,7 +28,7 @@ function App() {
   return (
     <div className="noteContainer">
       <Form addNote={addNote} editNote={editNote}/>
-      <NotesList notes={notes} deleteNote={deleteNote} editNote={editNote} />
+      <NotesList notes={notes} deleteNote={deleteNote} editNote={editNote} key={notes.id} />
     </div>
   );
 }

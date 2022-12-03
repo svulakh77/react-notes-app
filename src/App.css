@@ -219,3 +219,12 @@ body{
   -webkit-user-select: none;
   touch-action: manipulation;
 }
+.modalFooter{
+  border-radius: 15px 15px 15px 15px;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 250px;
+  height: 20px;
+}
