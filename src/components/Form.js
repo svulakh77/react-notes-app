@@ -23,7 +23,7 @@ function Form({ addNote, editNote }) {
       title: title,
       text: text,
       date: noteDate.toLocaleString(),
-      updatedDate:null,
+      updatedDate: null,
       id: nanoid(),
       editNote: { editNote },
     };
@@ -32,7 +32,6 @@ function Form({ addNote, editNote }) {
       addNote(newNote);
       setText("");
       setTitle("");
-      console.log(newNote);
     }
   };
   return (

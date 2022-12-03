@@ -17,18 +17,28 @@ function App() {
   const editNote = (noteId, newNoteTitle, newNoteText, date, newDate) => {
     const editedNote = notes.map((note) => {
       if (note.id === noteId) {
-        return { ...note, title: newNoteTitle, text: newNoteText, date:date, updatedDate:newDate};
+        return {
+          ...note,
+          title: newNoteTitle,
+          text: newNoteText,
+          date: date,
+          updatedDate: newDate,
+        };
       }
-      return note
+      return note;
     });
-    console.log(editedNote)
     setNotes(editedNote);
   };
 
   return (
     <div className="noteContainer">
-      <Form addNote={addNote} editNote={editNote}/>
-      <NotesList notes={notes} deleteNote={deleteNote} editNote={editNote} key={notes.id} />
+      <Form addNote={addNote} editNote={editNote} />
+      <NotesList
+        notes={notes}
+        deleteNote={deleteNote}
+        editNote={editNote}
+        key={notes.id}
+      />
     </div>
   );
 }
